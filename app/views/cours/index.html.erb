@@ -1,0 +1,16 @@
+<div  style="margin:10px">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Cours</h1>
+
+  <div id="cours">
+    <% @cours.each do |cour| %>
+      <%= render cour %>
+      <p>
+        <%= link_to "Show this cour", cour %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New cour", new_cour_path %>
+</div>
