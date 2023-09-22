@@ -1,20 +1,47 @@
-<div id="<%= dom_id cour %>" style="margin:10px">
-  <p>
+<div id="<%= dom_id cour %>" style="margin-top:10px; margin-left:5px;">
+
+<div class="container py-5">
+  <div class="d-flex justify-content-center">
+    <div class="col-12">
+        <div class="card" style="width: auto; border: 2px solid #FF7733;"> 
+		      <%= image_tag(cour.thumbnail, style:"width:100%;height:auto", class:"card-img-top") if cour.thumbnail.present? %>
+          <div class="card-body">
+            <h5 class="card-title">Basic Card</h5>
+            <p class="card-text">Sed semper eros aliquam nulla vulputate egestas. Suspendisse porttitor velit felis. </p>
+            <!--a href="#" class="btn btn-primary">Go somewhere</a-->
+            <div class="d-flex justify-content-sm-around flex-nowrap mb-3">
+              <span class="btn btn-secondary">
+                <%= link_to "Voir plus...", cour, class:"text-white" %>
+              </span>
+              <span class="ms-5 pricing-card-title" style="font-size:1.5rem; padding:5px; border: 2px solid #FF7733">
+                89€
+              </span>
+            </div>
+            
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--p>
     <strong>Title:</strong>
     <%= cour.title %>
   </p>
 
   <p>
     <strong>Content:</strong>
-    <%= cour.content %>
+    <%#= cour.content %>
   </p>
 
   <div>
-    <%= link_to image_tag(cour.thumbnail, style:"width:500px;height:auto"), cours_path if cour.thumbnail.present? %>
-  </div>
+    <%#= link_to image_tag(cour.thumbnail, style:"width:400px;height:auto"), cours_path if cour.thumbnail.present? %>
+  </div-->
 
-  <div>
-    <%= video_tag url_for(cour.video), :controls => true, style:"width:500px;height:auto" if cour.video.video?%>
-  </div>
+  <%#= link_to "Show this cour", cour %>
+
+  <!--div>
+    <%#= video_tag url_for(cour.video), :controls => true, style:"width:500px;height:auto" if cour.video.video?%>
+  </div-->
 
 </div>

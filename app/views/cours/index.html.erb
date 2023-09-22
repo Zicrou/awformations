@@ -1,16 +1,26 @@
-<div  style="margin:10px">
+<div class="" style="">
   <p style="color: green"><%= notice %></p>
 
-  <h1>Cours</h1>
+  <h1>
+    <%= link_to "New cour", new_cour_path, class:"btn btn-outline-primary" %>
+  </h1>
 
-  <div id="cours">
-    <% @cours.each do |cour| %>
-      <%= render cour %>
-      <p>
-        <%= link_to "Show this cour", cour %>
-      </p>
-    <% end %>
-  </div>
-
-  <%= link_to "New cour", new_cour_path %>
+  
+    <div id="cours">
+    <div class="container d-flex justify-content-center">
+    <div class="row justify-content-center">
+      <% @cours.each do |cour| %>
+        <div class="card" style="width: 25rem; margin:2%;padding:0%;">
+		      <%= image_tag(cour.thumbnail, style:"width:auto;height:auto;", class:"card-img-top", alt:"...") if cour.thumbnail.present? %>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+          <%#= render cour %>
+      <% end %>
+    </div>
+    </div>
+    </div>
 </div>
