@@ -8,6 +8,7 @@ class CoursController < ApplicationController
 
   # GET /cours/1 or /cours/1.json
   def show
+    @line_items =  LineItem.new
   end
 
   # GET /cours/new
