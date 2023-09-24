@@ -16,7 +16,8 @@
             <h5 class="card-title"><%= cour.title %></h5>
             <p class="card-text"><%= cour.content %></p>
             <div class="d-flex justify-content-between">
-              <a href="#" class="btn btn-outline-primary" style="">Voir +</a>
+              <%= link_to "Voir plus...", cour, class:"btn btn-outline-primary", style:"" %> 
+              <!--a href="#" class="btn btn-outline-primary" style="">Voir +</a-->
               <span class="fw-bold text-decoration-underline" style="border-top: 2px solid #FF7733;font-size:2rem;">89€</span>
             </div>
           </div>
