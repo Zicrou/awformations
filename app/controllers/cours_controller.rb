@@ -65,6 +65,6 @@ class CoursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cour_params
-      params.require(:cour).permit(:title, :content, :thumbnail, :video)
+      params.require(:cour).permit(:title, :content, :thumbnail, :video, :description)
     end
 end

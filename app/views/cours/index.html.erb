@@ -14,7 +14,7 @@
 		      <%= image_tag(cour.thumbnail, style:"width:auto;height:auto;", class:"card-img-top", alt:"...") if cour.thumbnail.present? %>
           <div class="card-body">
             <h5 class="card-title"><%= cour.title %></h5>
-            <p class="card-text"><%= cour.content %></p>
+            <p class="card-text"><%= cour.description %></p>
             <div class="d-flex justify-content-between">
               <%= link_to "Voir plus...", cour, class:"btn btn-outline-primary", style:"" %> 
               <!--a href="#" class="btn btn-outline-primary" style="">Voir +</a-->
