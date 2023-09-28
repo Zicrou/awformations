@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :line_items do
-    member :add_to_cart
+    member do
+      post :add_to_cart
+    end
   end
   resources :cours
   get 'home/index'

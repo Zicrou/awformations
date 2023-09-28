@@ -17,8 +17,8 @@
     </div>
 
     <div class="d-flex justify-content-center col-md-2" style="padding-top:19%;">
-      <%= form_with model: (@line_item) do |form| %>
-        <%= form.submit "Ajouter dans mon panier" %>
+      <%= form_with model: @line_items, url: add_to_cart_line_item_path  do |form| %>
+        <%= form.submit "Ajouter dans mon panier", class:"bi-cart-fill me-1" %>
       <% end %>
     </div>
 
