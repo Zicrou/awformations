@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_24_161304) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_01_175047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_24_161304) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "cards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cours", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -59,14 +69,45 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_24_161304) do
     t.text "description"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "card_id", null: false
+    t.index ["card_id"], name: "index_items_on_card_id"
+  end
+
   create_table "line_items", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "cour_id", null: false
+    t.bigint "item_id", null: false
     t.index ["cour_id"], name: "index_line_items_on_cour_id"
+    t.index ["item_id"], name: "index_line_items_on_item_id"
+  end
+
+  create_table "orderables", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orderables_on_cart_id"
+    t.index ["product_id"], name: "index_orderables_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.decimal "price", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "cards"
   add_foreign_key "line_items", "cours"
+  add_foreign_key "line_items", "items"
+  add_foreign_key "orderables", "carts"
+  add_foreign_key "orderables", "products"
 end

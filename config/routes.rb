@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'cart', to: 'cart#show'
+  post 'cart/add'
+  post 'cart/remove'
+  resources :products
+  resources :cards
+  resources :items
   resources :line_items do
     member do
       post :add_to_cart
@@ -9,5 +15,5 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-   root "home#index"
+   root "products#index"
 end
