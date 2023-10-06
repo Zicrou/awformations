@@ -37,7 +37,12 @@
                 <div class="text-center">
                   <!--a class="btn btn-outline-dark mt-auto mx-2" href="#">Voir +</a-->
                   <%= link_to "Voir +", product, class:"btn btn-outline-dark mt-auto m-2", style:"" %> 
-                  <%= link_to "Panier", cart_path, class:"btn btn-outline-dark mt-auto m-2", style:"" %> 
+                  <%#= link_to "Panier", cart_path, class:"btn btn-outline-dark mt-auto m-2", style:"" %> 
+                  <%= form_with(url: cart_add_path) do |f| %>
+                    <%= f.hidden_field :id, value: product.id %>
+                    <%= f.hidden_field :quantity, value:1, min: 1, max: 1 %>
+                    <%= f.submit "Ajouter au panier", class:"btn btn-outline-dark mt-auto m-2" %>
+                  <% end %>
                   <!--a class="btn btn-outline-dark mt-auto" href="#">Panier</a -->
                 </div>
               </div>

@@ -1,13 +1,15 @@
-<h1 class="d-flex justify-content-center">Mon panier: <span class="border-bottom border-warning border-5"><%= @cart.total %>€</span></h1>
+<h1 class="d-flex justify-content-center">Mon panier: <span class="border-bottom border-warning border-5"> <%= @cart.total %>€ </span></h1>
 
 <div class="row">
-    <h1><%= "regler la mise a jour du nombre sur le panier Tag"  %></h1>
+    <% if @cart.nil? %>
+        <h1><%= "Votre panier est vide"  %></h1>
+    <% end %>
     <% @cart.orderables.each do |orderable| %>
         <% product = orderable.product %>
     
         <!--p><%#= product.title %> * <%= orderable.quantity %> = $<%= product.price %> * <%= orderable.quantity %></p-->
-        <div class="col-md-8 px-5">
-            <div class="d-flex justify-content-start">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center">
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -32,8 +34,10 @@
     <% end %>
 
 </div>
+
+<% if @card.nil? %>
+<% end %>
+
 <div class="p-3 bg-info bg-opacity-10 border border-dark border-start-0 ">
     <h2 class="card-text ">Total <%= @cart.total %>€</h2>
 </div>
-
-
