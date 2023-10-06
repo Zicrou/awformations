@@ -1,0 +1,35 @@
+<h2 class="d-flex justify-content-center">Log in</h2>
+<div class="container col-md-8 d-flex justify-content-center">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :email, class:"form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control col-md-4" %>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="mb-3">    
+    <%= f.label :password, class:"form-label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control col-md-4" %>
+  </div>
+
+  <div class="mb-3 form-check">
+      <% if devise_mapping.rememberable? %>
+        <div class="form-group justify-content-center">
+          <%= f.check_box :remember_me, class:"form-check-input" %>
+          <%= f.label :remember_me, class:"form-check-label" %>
+        </div>
+      <% end %>
+  </div>
+   
+  <div class="form-group">
+    <%= f.submit "Se connecter", class:"btn btn-outline-warning" %>
+  </div>
+  <br>
+  <br>
+  <%= render "devise/shared/links" %>
+</div>
+  <% end %>
+
+</div>
