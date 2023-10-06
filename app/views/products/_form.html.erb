@@ -1,47 +1,48 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div class="container d-flex justify-content-center" style="width:75%">
+    <%= form_with(model: product) do |form| %>
+    <% if product.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+        <ul>
+          <% product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="form-group" >
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title, class:"form-control" %>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="form-group">
+      <%= form.label :thumbnail %>
+      <%= form.file_field :thumbnail, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :thumbnail %>
-    <%= form.file_field :thumbnail %>
-  </div>
+    <div class="form-group">
+      <%= form.label :video %>
+      <%= form.file_field :video, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :video %>
-    <%= form.file_field :video %>
-  </div>
+    <div class="form-group">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description, class:"form-control" %>
+    </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
+    <div class="form-group">
+      <%= form.label :price, style: "display: block" %>
+      <%= form.text_field :price, class:"form-control" %>
+    </div>
+</div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+<div class="container justify-content-center col-md-10">
+  <b><%= form.label :contenu, style: "display: block" %></b>
+  <%= form.rich_text_area :content,cols: 30, rows: 10  %>
+  <div class="my-4">
+    <%= form.submit "Enregistrer", class:"btn btn-warning col-md-4" %>
   </div>
+</div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
