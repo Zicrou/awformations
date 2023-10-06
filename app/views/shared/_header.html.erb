@@ -16,7 +16,19 @@
                         <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                     </ul>
                 </li>
+                <% if !user_signed_in? %>
+                    <li class="nav-item">
+                        <%= link_to "Se Connecter", new_user_session_path, class:"nav-link" %>
+                    <li class="nav-item">
+                        <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link" %>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to "Se déconnecter", destroy_user_session_path, class:"nav-link", method: :delete, data: { turbo_method: :delete } %>
+                    </li>
+                <% end %>
             </ul>
+
             <form class="d-flex">
                 <a href=" <%= cart_path %> " class="link-offset-2 link-underline">
                     <button class="btn btn-outline-dark" type="submit">
