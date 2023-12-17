@@ -1,6 +1,8 @@
 class CartController < ApplicationController
   def show
     @render_cart = false
+    @show_cart = Orderable.all
+    #debugger
   end
 
   def add

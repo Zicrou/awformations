@@ -4,7 +4,7 @@
     <% if @cart.nil? %>
         <h1><%= "Votre panier est vide"  %></h1>
     <% end %>
-    <% @cart.orderables.each do |orderable| %>
+    <% @show_cart.each do |orderable| %>
         <% product = orderable.product %>
     
         <!--p><%#= product.title %> * <%= orderable.quantity %> = $<%= product.price %> * <%= orderable.quantity %></p-->
