@@ -1,13 +1,17 @@
 <div>
   <p style="color: green"><%= notice %></p>
     <div class="d-flex px-5">
-      <%= link_to "Modifer ce cours", edit_cour_path(@cour), class:"btn btn-warning mx-3" %> |
-      <%= link_to "Retour", cours_path, class:"btn btn-secondary mx-3" %>
-
+      <%= link_to "Retour", cours_path, class:"btn btn-secondary mx-3" %> |
+      <%= link_to "Modifer ce cours", edit_cour_path(@cour), class:"btn btn-warning mx-3" %> 
       <%= button_to "Supprimer ce cours", @cour, method: :delete, class:"btn btn-danger " %>
     </div>  
     <%= render @cour %>
+    <div class="d-flex px-5 mb-5">
+      <%= link_to "Retour", cours_path, class:"btn btn-secondary mx-3" %> | 
+      <%= link_to "Modifer ce cours", edit_cour_path(@cour), class:"btn btn-warning mx-3" %>
 
+      <%= button_to "Supprimer ce cours", @cour, method: :delete, class:"btn btn-danger " %>
+    </div>  
   <div>
   </div>
 

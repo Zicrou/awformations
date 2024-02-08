@@ -1,6 +1,6 @@
 <div id="<%= dom_id cour %>" style="margin-top:10px;">
   <div class="d-flex justify-content-center">
-    <h1 class="py-5"><%= cour.title %></h1>
+    <h1 class="py-5"><%= cour.title %> €80.00</h1>
   </div>
 
   <div class="row mx-3">
@@ -18,7 +18,7 @@
 
     <div class="d-flex justify-content-center col-md-2" style="padding-top:19%;">
       <%= form_with model: @line_items, url: add_to_cart_line_item_path  do |form| %>
-        <%= form.submit "Ajouter dans mon panier", class:"bi-cart-fill me-1" %>
+        <%= form.submit "Ajouter dans mon panier", class:"bi-cart-fill me-1 btn btn-info" %>
       <% end %>
     </div>
 
