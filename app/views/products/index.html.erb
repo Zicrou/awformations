@@ -5,22 +5,27 @@
 <br>
     <div class="container marketing">
       <% @products.each do |product| %>
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading"><%= product.title %><span class="text-muted"> €<%= product.price %></span></h2>
-            <p class="lead"><%= product.description %>.</p>
-            <div class="d-flex">
-            <%= link_to "Voir +", product, class:"btn btn-outline-dark mt-auto m-2", style:"" %> 
-            <%= form_with(url: cart_add_path) do |f| %>
-              <%= f.hidden_field :id, value: product.id %>
-              <%= f.hidden_field :quantity, value:1, min: 1, max: 1 %>
-              <%= f.submit "Ajouter au panier", class:"btn btn-outline-dark mt-auto m-2" %>
-            <% end %>
+        <div class="row featurette mb-4">
+            <div class="col-md-7 order-md-2" style="border-bottom:4px solid orange; margin-top:-7px;">
+              <h2 class="featurette-heading"><%= product.title %><span class="text-muted"> €<%= product.price %></span></h2>
+              <p class="lead"><%= product.description %>.</p>
+              <div class="d-flex">
+              <%= link_to "Voir +", product, class:"btn btn-outline-dark mt-auto m-2", style:"" %> 
+              <%= form_with(url: cart_add_path) do |f| %>
+                <%= f.hidden_field :id, value: product.id %>
+                <%= f.hidden_field :quantity, value:1, min: 1, max: 1 %>
+                <%= f.submit "Ajouter au panier", class:"btn btn-outline-dark mt-auto m-2" %>
+              <% end %>
+              </div>
             </div>
+          <div class="col-md-5 order-md-1" style="margin-left:-1%";>
+              <%= image_tag product.thumbnail, class:"card-img-top featurette-image img-fluid mx-auto", alt:"..." if product.thumbnail.present? %>
           </div>
-          <div class="col-md-5 order-md-1">
-              <%= image_tag product.thumbnail, class:"card-img-top featurette-image img-fluid mx-auto", style:"border-bottom:4px solid orange;", alt:"..." if product.thumbnail.present? %>
+
+          <div class="bg-light">
+
           </div>
+          
       <% end %>
     </div>
 </main>
