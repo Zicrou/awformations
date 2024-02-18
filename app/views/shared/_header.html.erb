@@ -1,41 +1,41 @@
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-top:10px solid orange;">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="border-top:10px solid orange;">
     <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#!">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand text-white" href="#!">Start Bootstrap</a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="<%= root_path %>">Acceuil</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">Formation</a></li>
+                <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="<%= root_path %>">Acceuil</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="<%= products_path %>">Formation</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos Produits</a>
+                    <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos Produits</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Informatique</a></li>
+                        <li><a class="dropdown-item text-dark" href="#!">Informatique</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Developpement</a></li>
-                        <li><a class="dropdown-item" href="#!">Infographie</a></li>
-                        <li><a class="dropdown-item" href="#!">Administration Systémes & Réseaux</a></li>
+                        <li><a class="dropdown-item text-dark" href="#!">Developpement</a></li>
+                        <li><a class="dropdown-item text-dark" href="#!">Infographie</a></li>
+                        <li><a class="dropdown-item text-dark" href="#!">Administration Systémes & Réseaux</a></li>
                     </ul>
                 </li>
                 <% if !user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to "Se Connecter", new_user_session_path, class:"nav-link" %>
+                        <%= link_to "Se Connecter", new_user_session_path, class:"nav-link text-white" %>
                     <li class="nav-item">
-                        <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link" %>
+                        <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link text-white" %>
                     </li>
                 <% else %>
                     <li class="nav-item">
-                        <%= link_to "Se déconnecter", destroy_user_session_path, class:"nav-link", method: :delete, data: { turbo_method: :delete } %>
+                        <%= link_to "Se déconnecter", destroy_user_session_path, class:"nav-link text-white", method: :delete, data: { turbo_method: :delete } %>
                     </li>
                 <% end %>
             </ul>
 
             <form class="d-flex">
-                <a href=" <%= cart_path %> " class="link-offset-2 link-underline">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
+                <a href=" <%= cart_path %> " class="link-offset-2 link-underline text-white">
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="bi-cart-fill me-1 text-white"></i>
                         Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill"><%= turbo_frame_tag "cart" do %><%= @orderable_count %><% end %></span>
+                        <span class="badge bg-white text-black ms-1 rounded-pill"><%= turbo_frame_tag "cart" do %><%= @orderable_count %><% end %></span>
                     </button>
                     </a>
             </form>
